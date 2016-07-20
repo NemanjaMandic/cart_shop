@@ -1,0 +1,19 @@
+<h1>Checkout <%= @product.name %></h1>
+<table>
+    <thead>
+        <tr>
+            <th>Product</th>
+            <th>Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><%= @product.name %></td>
+            <td><%= @product.price %></td>
+        </tr>
+        <tr>
+            <td><strong>Ukupno: <%= @product.price %></strong></td>
+        </tr>
+    </tbody>
+</table>
+<%= button_to "Checkout", buy_product_path(@product), method: :patch %>

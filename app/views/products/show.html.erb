@@ -1,0 +1,12 @@
+<h2>Proizvod</h2>
+
+<h3><%= @product.name %></h3>
+<p><%= number_to_currency(@product.price) %></p>
+<p>Na lageru: <%= @product.stock.zero? || 'Rasprodato' %></p>
+<%= image_tag(@product.image_url) %>
+<br><br>
+
+<%= link_to 'Buy', checkout_product_path(@product) %> |
+<%= link_to 'Edit', edit_product_path(@product) %> |
+<%= link_to 'Delete', product_path(@product), method: :delete, data: { confirm: 'Are you sure ?' } %> |
+<%= link_to 'Back', products_path %>

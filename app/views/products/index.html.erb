@@ -1,0 +1,21 @@
+<h1>Proizvodi</h1>
+
+<% if @products.present? %>
+<ul>
+  <% @products.each do |product| %>
+    <li><%= product.name %></li>
+    <li><%= product.price %></li>
+    <li><%= link_to image_tag(product.image_url), product %></li>
+    <li><%= product.stock %></li>
+    <% if product.stock.zero? %>
+      <p>Nema vise na lageru</p>
+    <% else %>
+      <%= link_to 'Buy', checkout_product_path(product) %>
+    <%- end %>
+  <% end %>
+</ul>
+<% else %>
+<p>Nema proizvoda</p>
+<% end %>
+
+<%= link_to "Dodaj proizvod", new_product_path %>
