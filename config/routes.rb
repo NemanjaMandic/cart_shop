@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+   resources :sessions
+  
    resources :products do
       member do 
          get :checkout
